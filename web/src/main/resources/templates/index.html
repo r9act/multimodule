@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Users list</title>
+</head>
+<body align="center">
+<h1> All users list</h1>
+<table class="table" align="center">
+    <tr>
+        <th align="center">ID</th>
+        <th align="center">Name</th>
+    </tr>
+    <!--    Для работы цикла используем одну из фишек thymeleaf. мы создаем цикл и выводим все записи из коллекции,
+     которая нам придет из контроллера через параметр allUsers-->
+    <th:block th:each="user : ${allUsers}">
+        <tr>
+            <th align="center" th:text="${user.id}"></th>
+            <th align="center" th:text="${user.name}"></th>
+        </tr>
+    </th:block>
+</table>
+<br>
+<a href="/add">Add user</a>
+</body>
+</html>
